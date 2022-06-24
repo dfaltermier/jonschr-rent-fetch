@@ -54,6 +54,19 @@ if( !class_exists('ACF') ) {
 
 }
 
+/**
+ * Return the current theme version.
+ */
+function rf_get_theme_version() {
+    $theme = wp_get_theme();
+
+    if ( ( $theme instanceof WP_Theme ) && $theme->exists() ) {
+        return $theme->get('Version');
+    }
+
+    return false;
+}
+
 function rentfetch_acf_settings_url( $url ) {
     return RENTFETCH_ACF_URL;
 }
